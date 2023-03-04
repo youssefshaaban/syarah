@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="viewModel"
+            type="com.tama.syarah.home.settings.SettingsViewModel" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingHorizontal="@dimen/margin_horizental"
+        tools:context=".home.settings.SettingsFragment">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/pageTitle"
+            style="@style/TextHeadLineStyle"
+            android:text="@string/title_settings"
+            />
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:id="@+id/rv_settings"
+            android:layout_marginTop="@dimen/dimen_8dp"
+            app:layout_constraintTop_toBottomOf="@id/pageTitle"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:listitem="@layout/item_setting_layout"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:rvSettingsItems="@{viewModel.settingsItems}"
+            app:OnclickItem="@{viewModel.clickItemSetting}"
+            app:layout_constraintEnd_toEndOf="parent" />
+         <androidx.appcompat.widget.LinearLayoutCompat
+             android:layout_width="@dimen/dimen_28dp"
+             app:layout_constraintTop_toBottomOf="@id/rv_settings"
+             android:orientation="vertical"
+             android:gravity="center"
+             android:id="@+id/logout"
+             android:layout_marginTop="@dimen/dimen_28dp"
+             app:layout_constraintStart_toStartOf="parent"
+             android:background="@drawable/background_logout"
+             android:layout_height="@dimen/dimen_24dp">
+             <ImageView
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:src="@drawable/ic_logout"
+                 />
+         </androidx.appcompat.widget.LinearLayoutCompat>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/logout_txt"
+            android:text="@string/logout"
+            android:textColor="@color/teal_200"
+            android:layout_marginStart="@dimen/dimen_8dp"
+            app:layout_constraintTop_toTopOf="@id/logout"
+            app:layout_constraintStart_toEndOf="@id/logout"
+            app:layout_constraintBottom_toBottomOf="@id/logout"
+            />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Syarah</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="title_map">Map</string>
+    <string name="title_vehicale">Vehicle</string>
+    <string name="title_settings">Settings</string>
+    <string name="title_history_vecicles">Vehicles History</string>
+    <string name="account_information_menu">Account information</string>
+    <string name="change_language_menu">Change language</string>
+    <string name="logout">Log out</string>
+    <string name="title_car_info">Car Information</string>
+    <string name="txt_your_code">is your car code</string>
+    <string name="txt_card_plate">Card plate</string>
+    <string name="txt_vehicle_type">Vehicle type</string>
+    <string name="txt_vehicle_model">Vehicle Model</string>
+    <string name="txt_oil_type">Oil type</string>
+    <string name="txt_oil_brand_name">Oil Brand Name</string>
+    <string name="txt_oil_viscosity">Oil Viscosity</string>
+    <string name="txt_branch_name">Branch Name</string>
+    <string name="txt_search">Search</string>
+</resources>

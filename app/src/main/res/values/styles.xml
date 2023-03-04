@@ -1,0 +1,33 @@
+<resources>
+
+    <style name="BottomNavigation">
+        <item name="itemIconTint">@color/bottom_navigation_tint</item>
+        <item name="itemTextColor">@color/bottom_navigation_tint</item>
+        <item name="paddingStart">@dimen/bottom_navigation_padding</item>
+        <item name="paddingEnd">@dimen/bottom_navigation_padding</item>
+        <item name="android:background">#FDFDFD</item>
+        <item name="itemTextAppearance">@style/BottomNavigationText</item>
+    </style>
+
+    <style name="RegularTextStyle">
+        <item name="fontFamily">@font/kabret_font</item>
+    </style>
+
+    <style name="TextHeadLineStyle" parent="RegularTextStyle">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/ts_28sp</item>
+    </style>
+    <style name="NormalTextStyle" parent="RegularTextStyle">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/ts_13sp</item>
+    </style>
+    <style name="MeduimTextStyle" parent="RegularTextStyle">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/ts_15sp</item>
+    </style>
+    <style name="BottomNavigationText" parent="@android:style/TextAppearance">
+        <item name="android:fontFamily">@font/kabret_font</item>
+    </style>
+
+    <dimen name="bottom_navigation_padding">0dp</dimen>
+</resources>

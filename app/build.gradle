@@ -1,0 +1,64 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'com.google.dagger.hilt.android'
+    id 'kotlin-kapt'
+}
+
+android {
+    namespace 'com.tama.syarah'
+    compileSdk AppConfig.compileSdk
+
+    defaultConfig {
+        applicationId "com.tama.syarah"
+        versionCode 1
+        versionName "1.0"
+        minSdk AppConfig.minSdk
+        targetSdk AppConfig.compileSdk
+        testInstrumentationRunner AppConfig.androidTestInstrumentation
+        consumerProguardFiles AppConfig.proguardConsumerRules
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug{
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        dataBinding = true
+    }
+}
+
+dependencies {
+    implementation project(":data")
+    implementation project(":domain")
+    implementation project(":CustomUi")
+    implementation Libs.INSTANCE.coreExt
+    implementation Libs.INSTANCE.appCompat
+    implementation Libs.INSTANCE.material
+    implementation Libs.INSTANCE.constraintLayout
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.5.1'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.5.3'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
+    implementation Libs.INSTANCE.hiltAndroid
+    implementation Libs.INSTANCE.googleMap
+    implementation Libs.INSTANCE.maps_ktx
+    implementation Libs.INSTANCE.maps_utils_ktx
+    kapt Libs.INSTANCE.hiltAndroidCompiler
+    testImplementation TestLibs.INSTANCE.junit
+    androidTestImplementation TestLibs.INSTANCE.junitExt
+    androidTestImplementation TestLibs.INSTANCE.espresso
+}

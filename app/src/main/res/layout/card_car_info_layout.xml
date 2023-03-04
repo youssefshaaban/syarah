@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="title"
+            type="String" />
+        <variable
+            name="titleValue"
+            type="String" />
+    </data>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="@dimen/dimen_8dp"
+    app:contentPadding="@dimen/dimen_1dp"
+    app:cardBackgroundColor="@color/cardview_info_background"
+    app:strokeColor="@color/cardview_info_background"
+    app:cardUseCompatPadding="true"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+   <androidx.constraintlayout.widget.ConstraintLayout
+       android:layout_width="match_parent"
+       android:paddingVertical="@dimen/dimen_15dp"
+       android:paddingHorizontal="@dimen/dimen_10dp"
+       android:layout_height="wrap_content">
+      <androidx.appcompat.widget.AppCompatTextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent"
+          android:id="@+id/txt_title"
+          style="@style/MeduimTextStyle"
+          android:text="@{title}"
+          tools:text="fff"
+          />
+       <androidx.appcompat.widget.AppCompatTextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintTop_toTopOf="parent"
+           android:id="@+id/txt_title_value"
+           style="@style/MeduimTextStyle"
+           android:text="@{titleValue}"
+           tools:text="fff"
+           />
+   </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>
+</layout>

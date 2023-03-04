@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingHorizontal="@dimen/margin_horizental"
+        tools:context=".home.vehicle.VehicleFragment">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/pageTitle"
+            style="@style/TextHeadLineStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/title_car_info"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/pageTitle">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/contentCarCode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_50dp"
+                    app:cardBackgroundColor="@color/background_color_car_info"
+                    app:cardCornerRadius="@dimen/dimen_8dp"
+                    app:contentPadding="@dimen/dimen_5dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:strokeColor="@color/teal_200"
+                    app:strokeWidth="@dimen/dimen_1dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/iconImage"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dimen_20dp"
+                            android:src="@drawable/ic_car_information"
+                            app:layout_constraintBottom_toBottomOf="@id/txt_code"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@id/carCode" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/carCode"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dimen_18dp"
+                            android:layout_marginTop="@dimen/dimen_10dp"
+                            app:layout_constraintStart_toEndOf="@id/iconImage"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:text="44444" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/txt_code"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="@dimen/dimen_10dp"
+                            android:text="@string/txt_your_code"
+                            app:layout_constraintStart_toStartOf="@id/carCode"
+                            app:layout_constraintTop_toBottomOf="@id/carCode" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <include
+                    android:id="@+id/carPlate"
+                    layout="@layout/card_car_info_layout"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/contentCarCode"
+                    app:title="@{@string/txt_card_plate}"
+                    android:layout_marginTop="@dimen/dimen_20dp"
+                    app:titleValue="@{`ff`}"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"/>
+
+                <include
+                    android:id="@+id/vehicleType"
+                    layout="@layout/card_car_info_layout"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/carPlate"
+                    app:title="@{@string/txt_vehicle_type}"
+                    android:layout_marginTop="@dimen/dimen_8dp"
+                    app:titleValue="@{`ff`}"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"/>
+
+                <include
+                    android:id="@+id/vehicleModel"
+                    layout="@layout/card_car_info_layout"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/vehicleType"
+                    app:title="@{@string/txt_vehicle_model}"
+                    android:layout_marginTop="@dimen/dimen_8dp"
+                    app:titleValue="@{`ff`}"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"/>
+
+                <include
+                    android:id="@+id/oilType"
+                    layout="@layout/card_car_info_layout"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/vehicleModel"
+                    app:title="@{@string/txt_oil_type}"
+                    android:layout_marginTop="@dimen/dimen_8dp"
+                    app:titleValue="@{`ff`}"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"/>
+
+                <include
+                    android:id="@+id/brandName"
+                    layout="@layout/card_car_info_layout"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/oilType"
+                    app:title="@{@string/txt_oil_brand_name}"
+                    android:layout_marginTop="@dimen/dimen_8dp"
+                    app:titleValue="@{`ff`}"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"/>
+                <include
+                    android:id="@+id/oilViscosity"
+                    layout="@layout/card_car_info_layout"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/brandName"
+                    app:title="@{@string/txt_oil_viscosity}"
+                    android:layout_marginTop="@dimen/dimen_8dp"
+                    app:titleValue="@{`ff`}"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"/>
+                <include
+                    android:id="@+id/branchName"
+                    layout="@layout/card_car_info_layout"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/oilViscosity"
+                    app:title="@{@string/txt_branch_name}"
+                    android:layout_marginTop="@dimen/dimen_8dp"
+                    app:titleValue="@{`ff`}"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <data>
+
+    </data>
+</layout>

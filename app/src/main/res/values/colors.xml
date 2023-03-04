@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FFFFFFFF</color>
+    <color name="purple_700">@android:color/transparent</color>
+    <color name="teal_200">#F8B627</color>
+    <color name="teal_700">#F8B627</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="bottom_nav_item_icon_unselected_color">#9EA6B1</color>
+    <color name="bottom_nav_item_badge_color">@color/teal_200</color>
+    <color name="bottom_nav_item_icon_selected_color">@color/teal_200</color>
+    <color name="background_color_car_info">#FFF8EA</color>
+    <color name="cardview_info_background">#FAFAFA</color>
+</resources>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="TextInput" parent="Widget.AppCompat.EditText">
+        <item name="android:layout_marginBottom">@dimen/dimen_4dp</item>
+        <item name="android:drawablePadding">@dimen/dimen_8dp</item>
+        <item name="android:textSize">@dimen/ts_18sp</item>
+        <item name="android:paddingTop">@dimen/dimen_12dp</item>
+        <item name="android:paddingBottom">@dimen/dimen_12dp</item>
+    </style>
+
+    <dimen name="dimen_4dp">4dp</dimen>
+    <dimen name="dimen_8dp">8dp</dimen>
+    <dimen name="ts_18sp">18sp</dimen>
+    <dimen name="dimen_12dp">12dp</dimen>
+</resources>
