@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <import type="android.text.InputType"/>
+        <variable
+            name="isMasked"
+            type="Boolean" />
+        <variable
+            name="resourceId"
+            type="Integer" />
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="@dimen/dimen_10dp"
+    android:background="@drawable/background_strock_unselection"
+    android:layout_height="wrap_content">
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/icon"
+        app:iconSrc="@{resourceId}"
+        android:layout_marginStart="@dimen/dimen_10dp"
+        tools:src="@drawable/ic_user_avatar"
+        />
+    <androidx.appcompat.widget.AppCompatEditText
+        android:layout_width="0dp"
+        android:background="@null"
+        android:id="@+id/etInput"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/icon"
+        android:layout_height="wrap_content"
+        android:inputType="@{isMasked ? (InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD): InputType.TYPE_CLASS_TEXT }"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

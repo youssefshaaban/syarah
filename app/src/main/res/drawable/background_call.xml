@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <corners android:radius="@dimen/dimen_13dp"/>
+    <solid android:color="@color/white"/>
+    <stroke android:color="@color/bottom_nav_item_icon_unselected_color" android:width="@dimen/dimen_1dp"/>
+</shape>

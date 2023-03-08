@@ -13,11 +13,11 @@ import com.tama.customui.databinding.LayoutSearchViewBinding
 
 @BindingMethods(
     BindingMethod(
-    type = SearchBarCustomView::class,
-    attribute = "app:hintText",
-    method = "setSearchHint")
+        type = SearchBarCustomView::class,
+        attribute = "app:hintByKey",
+        method = "setSearchHint"
+    )
 )
-
 class SearchBarCustomView @JvmOverloads constructor(
     context: Context,
     attributeSet: AttributeSet? = null,

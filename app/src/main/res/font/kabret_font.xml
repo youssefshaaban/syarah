@@ -6,12 +6,6 @@
         app:font="@font/rubik_regular"
         app:fontStyle="normal"
         app:fontWeight="400" />
-   <!--    meduim-->
-    <font
-        app:font="@font/rubik_medium"
-        app:fontStyle="normal"
-        app:fontWeight="500" />
-
     <!-- bold -->
     <font
         app:font="@font/rubik_bold"

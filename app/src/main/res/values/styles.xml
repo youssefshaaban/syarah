@@ -13,6 +13,10 @@
         <item name="fontFamily">@font/kabret_font</item>
     </style>
 
+    <style name="LightTextStyle">
+        <item name="fontFamily">@font/rubik_light</item>
+    </style>
+
     <style name="TextHeadLineStyle" parent="RegularTextStyle">
         <item name="android:textColor">@color/black</item>
         <item name="android:textSize">@dimen/ts_28sp</item>
@@ -23,11 +27,37 @@
     </style>
     <style name="MeduimTextStyle" parent="RegularTextStyle">
         <item name="android:textColor">@color/black</item>
-        <item name="android:textSize">@dimen/ts_15sp</item>
+        <item name="android:textSize">@dimen/ts_18sp</item>
+    </style>
+    <style name="LargTextStyle" parent="RegularTextStyle">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/ts_20sp</item>
+    </style>
+    <style name="TextStyleLight" parent="LightTextStyle">
+        <item name="android:textColor">@color/light_dark</item>
+        <item name="android:textSize">@dimen/ts_16sp</item>
     </style>
     <style name="BottomNavigationText" parent="@android:style/TextAppearance">
         <item name="android:fontFamily">@font/kabret_font</item>
     </style>
-
+    <style name="BaseButton" parent="@style/Widget.AppCompat.Button.Borderless">
+        <item name="android:textSize">@dimen/ts_16sp</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingTop">@dimen/dimen_8dp</item>
+        <item name="android:paddingBottom">@dimen/dimen_8dp</item>
+        <item name="android:paddingStart">@dimen/dimen_16dp</item>
+        <item name="android:paddingEnd">@dimen/dimen_16dp</item>
+        <item name="fontFamily">@font/kabret_font</item>
+    </style>
+    <style name="customRoundedImageView">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">4dp</item>
+    </style>
+    <style name="PrimaryWhiteButton" parent="BaseButton">
+        <item name="android:background">@drawable/bg_white_button_rounded_corners_selector</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
     <dimen name="bottom_navigation_padding">0dp</dimen>
 </resources>

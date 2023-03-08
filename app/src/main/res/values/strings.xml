@@ -18,4 +18,18 @@
     <string name="txt_oil_viscosity">Oil Viscosity</string>
     <string name="txt_branch_name">Branch Name</string>
     <string name="txt_search">Search</string>
+    <string name="select_language">Select language</string>
+    <string name="arabic">Arabic</string>
+    <string name="txt_english">English</string>
+    <string name="txt_welcome_at_kabrit">Welcome at Kabrit</string>
+    <string name="txt_skip">Skip</string>
+    <string name="txt_select_service">Select Service Center</string>
+    <string name="txt_continue">Continue</string>
+    <string name="txt_title_login">Hello again</string>
+    <string name="txt_sign_into_login">Sig in to your account</string>
+    <string name="txt_user_name">User Name</string>
+    <string name="txt_password">Password</string>
+    <string name="txt_login">login</string>
+    <string name="txt_directions">Directions</string>
+    <string name="txt_call">Call</string>
 </resources>

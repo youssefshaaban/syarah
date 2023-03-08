@@ -13,19 +13,31 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Syarah"
         tools:targetApi="33">
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="" />
         <activity
-            android:name=".home.HomeActivity"
-            android:exported="true"
-            android:label="@string/title_activity_home">
+            android:name=".login.LoginActivity"
+            android:exported="false">
+        </activity>
+        <activity
+            android:name=".onboarding.OnboardingActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".change_language.ChangeLanguageActivity"
+            android:exported="false"></activity>
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="" />
+
+        <activity
+            android:name=".home.HomeActivity"
+            android:exported="false"
+            android:label="@string/title_activity_home" />
     </application>
 
 </manifest>
