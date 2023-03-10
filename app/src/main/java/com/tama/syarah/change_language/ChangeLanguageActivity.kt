@@ -18,5 +18,10 @@ class ChangeLanguageActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_change_language)
         binding.lifecycleOwner = this
         binding.also { it.viewModel = viewModel }
+        viewModel.shouldFinishActiivty.observe(this) {
+            if (it) {
+                finish()
+            }
+        }
     }
 }

@@ -14,7 +14,12 @@ class LoginActivity : AppCompatActivity() {
     val viewModel:LoginViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding=DataBindingUtil.setContentView(this, R.layout.activity_login)
-        binding.also { it.viewModel=viewModel }
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_login)
+        binding.also { it.viewModel = viewModel }
+        viewModel.finshiViewLiveData.observe(this) {
+            if (it) {
+                finish()
+            }
+        }
     }
 }

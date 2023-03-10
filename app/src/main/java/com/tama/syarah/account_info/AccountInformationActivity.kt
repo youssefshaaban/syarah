@@ -14,6 +14,7 @@ class AccountInformationActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding=DataBindingUtil.setContentView(this,R.layout.activity_account_information)
         binding.icBack.setOnClickListener { finish() }
+        binding.saveChange.setOnClickListener { finish() }
         binding.changePassword.setOnClickListener { startActivity(Intent(this,ChangePasswordActivity::class.java))  }
     }
 }

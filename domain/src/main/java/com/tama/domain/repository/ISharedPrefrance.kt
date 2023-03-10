@@ -5,4 +5,7 @@ interface ISharedPrefrance {
     fun saveOnboarding(open: Boolean)
     fun getLang():String
     fun setLang(lang:String)
+    fun setLanguageSelected(isSelected: Boolean)
+    fun isLanguageSelected():Boolean
+
 }

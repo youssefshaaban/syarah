@@ -61,7 +61,7 @@
             android:orientation="horizontal"
             android:id="@+id/checkArabic"
             android:padding="@dimen/dimen_15dp"
-            android:onClick="@{()->viewModel.onClickSelectionLanguage(LanguageType.ARABIC)}"
+            android:onClick="@{(v)->viewModel.onClickSelectionLanguage(v,LanguageType.ARABIC)}"
             app:bindSelectionContent="@{viewModel.arabicSelection}"
             android:layout_height="wrap_content">
             <ImageView
@@ -85,7 +85,7 @@
             android:padding="@dimen/dimen_15dp"
             android:id="@+id/checkEnglish"
             android:orientation="horizontal"
-            android:onClick="@{()->viewModel.onClickSelectionLanguage(LanguageType.ENGLISH)}"
+            android:onClick="@{(v)->viewModel.onClickSelectionLanguage(v,LanguageType.ENGLISH)}"
             app:bindSelectionContent="@{viewModel.englishSelection}"
             android:background="@drawable/background_strock_unselection"
             android:layout_height="wrap_content">

@@ -1,6 +1,7 @@
 package com.tama.data.local
 
 import android.content.Context
+import com.tama.data.util.KEY_LANG_SELECTED
 import com.tama.data.util.KEY_PREF_LANG
 import com.tama.data.util.KEY_PREF_OPEN_ONBOARDING
 import com.tama.data.util.SHARED_PREFERENCES_FILE_NAME
@@ -31,5 +32,16 @@ class AppPrefrancesImp @Inject constructor( @ApplicationContext context: Context
             it.putString(KEY_PREF_LANG, lang)
             it.apply()
         }
+    }
+
+    override fun setLanguageSelected(isSelected: Boolean) {
+        sharedPref.edit().also {
+            it.putBoolean(KEY_LANG_SELECTED, isSelected)
+            it.apply()
+        }
+    }
+
+    override fun isLanguageSelected(): Boolean {
+        return sharedPref.getBoolean(KEY_LANG_SELECTED, false)
     }
 }

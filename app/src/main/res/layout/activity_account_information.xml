@@ -110,6 +110,7 @@
             app:layout_constraintStart_toEndOf="@id/icon"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
+            android:text="fdsfdsfds"
             android:enabled="false"
             />
         <TextView
