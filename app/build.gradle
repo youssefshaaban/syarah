@@ -57,6 +57,9 @@ dependencies {
     implementation Libs.INSTANCE.googleMap
     implementation Libs.INSTANCE.maps_ktx
     implementation Libs.INSTANCE.maps_utils_ktx
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     kapt Libs.INSTANCE.hiltAndroidCompiler
     testImplementation TestLibs.INSTANCE.junit
     androidTestImplementation TestLibs.INSTANCE.junitExt

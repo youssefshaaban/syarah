@@ -3,18 +3,18 @@ package com.tama.syarah.change_language
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.tama.domain.usecases.languague_uscase.GetLanguageUscase
-import com.tama.domain.usecases.languague_uscase.SetLanguageUsecase
+import com.tama.domain.usecases.languague_uscase.GetLanguageUseCase
+import com.tama.domain.usecases.languague_uscase.SetLanguageUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
 class ChangeLanguageViewModel @Inject constructor(
-    val setLanguageUsecase: SetLanguageUsecase,
-    getLanguageUscase: GetLanguageUscase
+    val setLanguageUsecase: SetLanguageUseCase,
+    getLanguageUseCase: GetLanguageUseCase
 ) : ViewModel() {
-    val _arabicSelection = MutableLiveData(true)
-    val _englishSelection = MutableLiveData(false)
+    private val _arabicSelection = MutableLiveData(true)
+    private val _englishSelection = MutableLiveData(false)
     val englishSelection = MediatorLiveData<Boolean>()
     val arabicSelection = MediatorLiveData<Boolean>()
 
@@ -25,7 +25,7 @@ class ChangeLanguageViewModel @Inject constructor(
         arabicSelection.addSource(_arabicSelection) {
             arabicSelection.value = it
         }
-        when (getLanguageUscase.invoke()) {
+        when (getLanguageUseCase.invoke()) {
             "en" -> {
                 _englishSelection.value = true
                 _arabicSelection.value = false
