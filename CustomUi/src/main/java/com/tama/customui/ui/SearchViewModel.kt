@@ -7,9 +7,8 @@ import androidx.lifecycle.ViewModel
 class SearchViewModel : ViewModel() {
     var searchAction: SearchBarCustomView.SearchAction? = null
     val clearText = MutableLiveData<Boolean>()
-     val shouldShowClearButton = MediatorLiveData<Boolean>().apply { value = true }
+    val shouldShowClearButton = MediatorLiveData<Boolean>().apply { value = true }
     private val searchKey = MutableLiveData<String>().apply { value = "" }
-
 
     init {
         shouldShowClearButton.addSource(searchKey) {

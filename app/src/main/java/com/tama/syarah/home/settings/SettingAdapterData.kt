@@ -1,6 +1,7 @@
 package com.tama.syarah.home.settings
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.DiffUtil
@@ -14,7 +15,7 @@ import com.tama.syarah.databinding.ItemSettingLayoutBinding
 fun setSettingsItemslist(
     recyclerView: RecyclerView,
     list: List<SettingsItem>,
-    clickItem: (SettingsItem) -> Unit
+    clickItem: (View, SettingsItem) -> Unit
 ) {
     list.also {
         val adapter: SettingAdapterData
@@ -28,14 +29,14 @@ fun setSettingsItemslist(
     }
 }
 
-class SettingAdapterData(private val clickItem: (SettingsItem) -> Unit) :
+class SettingAdapterData(private val clickItem: (View, SettingsItem) -> Unit) :
     ListAdapter<SettingsItem, SettingAdapterData.ViewHolderItemSetting>(SettingItemDiffCallback()) {
 
     class ViewHolderItemSetting(private val binding: ItemSettingLayoutBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(settingsItem: SettingsItem, clickItem: (SettingsItem) -> Unit) {
+        fun bind(settingsItem: SettingsItem, clickItem: (View, SettingsItem) -> Unit) {
             binding.model = settingsItem
-            binding.root.setOnClickListener { clickItem.invoke(settingsItem) }
+            binding.root.setOnClickListener { v -> clickItem.invoke(v, settingsItem) }
         }
     }
 

@@ -56,13 +56,12 @@
             android:layout_height="wrap_content"
             android:id="@+id/logout_txt"
             android:text="@string/logout"
-            android:textColor="@color/teal_200"
+            style="@style/NormalTextStyle"
+            android:textColor="@color/txt_logout_color"
             android:layout_marginStart="@dimen/dimen_8dp"
             app:layout_constraintTop_toTopOf="@id/logout"
             app:layout_constraintStart_toEndOf="@id/logout"
             app:layout_constraintBottom_toBottomOf="@id/logout"
             />
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

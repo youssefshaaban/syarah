@@ -21,6 +21,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 style="@style/TextInput"
+                android:textColorHint="@color/hint_color"
                 android:layout_width="0dp"
                 android:background="@null"
                 android:layout_height="match_parent"
@@ -38,7 +39,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:onClick="@{()->viewModel.onRightButtonClick()}"
-            android:src="@{viewModel.shouldShowClearButton? @drawable/ic_close :@drawable/ic_search}" />
+            android:src="@{viewModel.shouldShowClearButton ? @drawable/ic_close : @drawable/ic_search}" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

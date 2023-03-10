@@ -32,4 +32,12 @@
     <string name="txt_login">login</string>
     <string name="txt_directions">Directions</string>
     <string name="txt_call">Call</string>
+    <string name="txt_account_information">Account information</string>
+    <string name="txt_phone_number">Phone Number</string>
+    <string name="txt_change"><u>Change</u></string>
+    <string name="txt_save_change">Save Changes</string>
+    <string name="txt_change_password">Change password</string>
+    <string name="txt_current_password">Current password</string>
+    <string name="txt_new_password">New password</string>
+    <string name="txt_confirm_password">Confirm new password</string>
 </resources>
