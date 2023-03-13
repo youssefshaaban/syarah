@@ -40,4 +40,5 @@
     <string name="txt_current_password">Current password</string>
     <string name="txt_new_password">New password</string>
     <string name="txt_confirm_password">Confirm new password</string>
+    <string name="txt_lets_start">Let’s start</string>
 </resources>

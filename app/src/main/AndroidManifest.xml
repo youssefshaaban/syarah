@@ -34,7 +34,7 @@
             android:exported="false" />
         <activity
             android:name=".onboarding.OnboardingActivity"
-            android:exported="true"></activity>
+            android:exported="false"/>
         <activity
             android:name=".change_language.ChangeLanguageActivity"
             android:exported="false">

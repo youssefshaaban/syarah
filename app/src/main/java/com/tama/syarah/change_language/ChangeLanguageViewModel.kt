@@ -8,15 +8,14 @@ import androidx.lifecycle.ViewModel
 import com.tama.domain.usecases.languague_uscase.GetLanguageUseCase
 import com.tama.domain.usecases.languague_uscase.SetLanguageLanguageSelctUseCase
 import com.tama.domain.usecases.languague_uscase.SetLanguageUseCase
-import com.tama.syarah.login.LoginActivity
 import com.tama.syarah.onboarding.OnboardingActivity
 import dagger.hilt.android.lifecycle.HiltViewModel
+import java.util.*
 import javax.inject.Inject
 
 @HiltViewModel
 class ChangeLanguageViewModel @Inject constructor(
     val setLanguageUsecase: SetLanguageUseCase,
-    getLanguageUseCase: GetLanguageUseCase,
     val setLanguageLanguageSelctUseCase: SetLanguageLanguageSelctUseCase
 ) : ViewModel() {
     private val _arabicSelection = MutableLiveData(true)
@@ -31,7 +30,7 @@ class ChangeLanguageViewModel @Inject constructor(
         arabicSelection.addSource(_arabicSelection) {
             arabicSelection.value = it
         }
-        when (getLanguageUseCase.invoke()) {
+        when (Locale.getDefault().language) {
             "en" -> {
                 _englishSelection.value = true
                 _arabicSelection.value = false
@@ -54,6 +53,9 @@ class ChangeLanguageViewModel @Inject constructor(
             _arabicSelection.value = true
             setLanguageUsecase.invoke("ar")
         }
+
+    }
+    fun onClickStart(view: View){
         setLanguageLanguageSelctUseCase.invoke(true)
         view.context.startActivity(Intent(view.context, OnboardingActivity::class.java))
         shouldFinishActiivty.value = true

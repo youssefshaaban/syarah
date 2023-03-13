@@ -1,8 +1,7 @@
 package com.tama.syarah.splash
 
 
-import android.os.Handler
-import android.os.Looper
+
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.tama.domain.usecases.languague_uscase.IsLanguageLanguageSelctUseCase
@@ -19,14 +18,12 @@ class SplashViewModel @Inject constructor(
     val openLanguageSelection = MutableLiveData<Boolean>()
     val openLogin = MutableLiveData<Boolean>()
 
-    init {
-        Handler(Looper.getMainLooper()).postDelayed(Runnable { //This method will be executed once the timer is over
-            if (isLanguageLanguageSelctUseCase.invoke() && !isOnboaedingOpenUscase.invoke()) {
-                openOnBoarding.value = true
-            } else if (isLanguageLanguageSelctUseCase.invoke() && isOnboaedingOpenUscase.invoke()) {
-                openLogin.value
-            } else
-                openLanguageSelection.value = true
-        }, 2000)
+    fun initNextView(){
+        if (isLanguageLanguageSelctUseCase.invoke() && !isOnboaedingOpenUscase.invoke()) {
+            openOnBoarding.postValue(true)
+        } else if (isLanguageLanguageSelctUseCase.invoke() && isOnboaedingOpenUscase.invoke()) {
+            openLogin.postValue(true)
+        } else
+            openLanguageSelection.postValue(true)
     }
 }

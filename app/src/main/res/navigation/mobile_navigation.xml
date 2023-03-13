@@ -3,20 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_vechicals">
-
-
-    <fragment
-        android:id="@+id/navigation_vechicals"
-        android:name="com.tama.syarah.home.vehicle.VehicleFragment"
-        android:label="@string/title_vehicale"
-        tools:layout="@layout/fragment_vechicals" />
+    app:startDestination="@+id/navigation_map">
 
     <fragment
         android:id="@+id/navigation_map"
         android:name="com.tama.syarah.home.map.MapFragment"
         android:label="@string/title_map"
         tools:layout="@layout/fragment_map" />
+
+    <fragment
+        android:id="@+id/navigation_vechicals"
+        android:name="com.tama.syarah.home.vehicle.VehicleFragment"
+        android:label="@string/title_vehicale"
+        tools:layout="@layout/fragment_vechicals" />
 
     <fragment
         android:id="@+id/navigation_settings"
