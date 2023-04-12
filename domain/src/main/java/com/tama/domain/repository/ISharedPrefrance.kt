@@ -7,5 +7,8 @@ interface ISharedPrefrance {
     fun setLang(lang:String)
     fun setLanguageSelected(isSelected: Boolean)
     fun isLanguageSelected():Boolean
-
+    fun saveToken(token: String)
+    fun getToken():String
+    fun saveRefreshToken(refreshToken: String)
+    fun getRefreshToken():String
 }

@@ -57,6 +57,8 @@ dependencies {
     implementation Libs.INSTANCE.googleMap
     implementation Libs.INSTANCE.maps_ktx
     implementation Libs.INSTANCE.maps_utils_ktx
+    implementation Libs.INSTANCE.glide
+    implementation 'com.google.android.gms:play-services-location:19.0.1'
     kapt Libs.INSTANCE.hiltAndroidCompiler
     testImplementation TestLibs.INSTANCE.junit
     androidTestImplementation TestLibs.INSTANCE.junitExt

@@ -8,8 +8,9 @@ import android.widget.FrameLayout
 import androidx.core.widget.doOnTextChanged
 import androidx.databinding.BindingMethod
 import androidx.databinding.BindingMethods
-import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.findViewTreeLifecycleOwner
 import com.tama.customui.databinding.LayoutSearchViewBinding
+import kotlinx.coroutines.flow.*
 
 @BindingMethods(
     BindingMethod(
@@ -27,20 +28,29 @@ class SearchBarCustomView @JvmOverloads constructor(
     fun interface SearchAction {
         fun search(key: String)
     }
+
     private val searchCustomViewViewModel = SearchViewModel()
 
-    private var textInputEditText: EditText?=null
+    private var textInputEditText: EditText? = null
     private val binding: LayoutSearchViewBinding =
         LayoutSearchViewBinding.inflate(
             LayoutInflater.from(context), this, true
         ).apply {
             viewModel = searchCustomViewViewModel
             this@SearchBarCustomView.textInputEditText = textInputEditText
-            if (context is LifecycleOwner) {
-                lifecycleOwner = context
-            }
         }
 
+    override fun onAttachedToWindow() {
+        super.onAttachedToWindow()
+        binding.lifecycleOwner = findViewTreeLifecycleOwner()
+        searchCustomViewViewModel.clearText.observe(findViewTreeLifecycleOwner()!!) { event ->
+            event?.also { shouldClearText ->
+                if (shouldClearText) {
+                    textInputEditText?.setText("")
+                }
+            }
+        }
+    }
 
     init {
         textInputEditText?.setOnFocusChangeListener { _, hasFocus ->
@@ -49,15 +59,7 @@ class SearchBarCustomView @JvmOverloads constructor(
         textInputEditText?.doOnTextChanged { text, _, _, _ ->
             searchCustomViewViewModel.onSearchTextChanged(text.toString())
         }
-        binding.lifecycleOwner?.let {
-            searchCustomViewViewModel.clearText.observe(it) { event ->
-                event?.also { shouldClearText ->
-                    if (shouldClearText) {
-                        textInputEditText?.setText("")
-                    }
-                }
-            }
-        }
+
     }
 
 
@@ -68,6 +70,7 @@ class SearchBarCustomView @JvmOverloads constructor(
     fun setSearchAction(action: SearchAction) {
         searchCustomViewViewModel.searchAction = action
     }
-
-
+    fun getQueryTextChangeStateFlow(): StateFlow<String> {
+        return searchCustomViewViewModel.query
+    }
 }

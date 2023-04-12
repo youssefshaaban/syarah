@@ -17,16 +17,12 @@ suspend fun <R> apiCall(call: suspend () -> Response<R>):Resource<R> {
              if (body != null) return Resource.Success(body)
          }
          val errorStr = response.errorBody()?.string()
-         var errorObjects:BasicError? = null
-         if (!errorStr.isNullOrEmpty()) {
-             errorObjects = Gson().fromJson(errorStr, BasicError::class.java)
-         }
          return when (responseCode) {
              HttpURLConnection.HTTP_UNAUTHORIZED->Resource.Error(Failure.UnAuthorize)
              HttpURLConnection.HTTP_NOT_FOUND,
              HttpURLConnection.HTTP_FORBIDDEN, HttpURLConnection.HTTP_UNAVAILABLE
-                 , HttpURLConnection.HTTP_INTERNAL_ERROR->Resource.Error(error = Failure.ServerError(errorObjects?.detail))
-             else -> Resource.Error(error = Failure.UnknownError(errorObjects?.detail))
+                 , HttpURLConnection.HTTP_INTERNAL_ERROR->Resource.Error(error = Failure.ServerError(errorStr))
+             else -> Resource.Error(error = Failure.UnknownError(errorStr))
          }
 
      } catch (e: Exception) {
@@ -38,10 +34,3 @@ suspend fun <R> apiCall(call: suspend () -> Response<R>):Resource<R> {
          }
      }
 }
-private data class BasicError(
-    val status: Int,
-    val title: String,
-    val traceId: String,
-    val detail:String,
-    val type: String
-)

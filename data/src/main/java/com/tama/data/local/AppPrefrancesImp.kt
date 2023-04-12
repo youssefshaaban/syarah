@@ -1,10 +1,7 @@
 package com.tama.data.local
 
 import android.content.Context
-import com.tama.data.util.KEY_LANG_SELECTED
-import com.tama.data.util.KEY_PREF_LANG
-import com.tama.data.util.KEY_PREF_OPEN_ONBOARDING
-import com.tama.data.util.SHARED_PREFERENCES_FILE_NAME
+import com.tama.data.util.*
 import com.tama.domain.repository.ISharedPrefrance
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
@@ -43,5 +40,27 @@ class AppPrefrancesImp @Inject constructor( @ApplicationContext context: Context
 
     override fun isLanguageSelected(): Boolean {
         return sharedPref.getBoolean(KEY_LANG_SELECTED, false)
+    }
+
+    override fun saveToken(token: String) {
+        sharedPref.edit().also {
+            it.putString(KEY_TOKEN, token)
+            it.apply()
+        }
+    }
+
+    override fun getToken(): String {
+        return sharedPref.getString(KEY_TOKEN, "").toString()
+    }
+
+    override fun saveRefreshToken(refreshToken: String) {
+        sharedPref.edit().also {
+            it.putString(KEY_REFRESH_TOKEN, refreshToken)
+            it.apply()
+        }
+    }
+
+    override fun getRefreshToken(): String {
+        return sharedPref.getString(KEY_REFRESH_TOKEN, "").toString()
     }
 }

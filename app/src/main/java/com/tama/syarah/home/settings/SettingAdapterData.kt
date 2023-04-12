@@ -15,7 +15,7 @@ import com.tama.syarah.databinding.ItemSettingLayoutBinding
 fun setSettingsItemslist(
     recyclerView: RecyclerView,
     list: List<SettingsItem>,
-    clickItem: (View, SettingsItem) -> Unit
+    clickItem: ( SettingsItem) -> Unit
 ) {
     list.also {
         val adapter: SettingAdapterData
@@ -29,14 +29,14 @@ fun setSettingsItemslist(
     }
 }
 
-class SettingAdapterData(private val clickItem: (View, SettingsItem) -> Unit) :
+class SettingAdapterData(private val clickItem: (SettingsItem) -> Unit) :
     ListAdapter<SettingsItem, SettingAdapterData.ViewHolderItemSetting>(SettingItemDiffCallback()) {
 
     class ViewHolderItemSetting(private val binding: ItemSettingLayoutBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(settingsItem: SettingsItem, clickItem: (View, SettingsItem) -> Unit) {
+        fun bind(settingsItem: SettingsItem, clickItem: (SettingsItem) -> Unit) {
             binding.model = settingsItem
-            binding.root.setOnClickListener { v -> clickItem.invoke(v, settingsItem) }
+            binding.root.setOnClickListener { v -> clickItem.invoke(settingsItem) }
         }
     }
 

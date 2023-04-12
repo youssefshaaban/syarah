@@ -2,12 +2,23 @@
 <layout>
     <data>
         <import type="android.text.InputType"/>
+        <import type="kotlin.jvm.functions.Function4"/>
+        <import type="kotlin.Unit" />
         <variable
             name="isMasked"
             type="Boolean" />
         <variable
             name="resourceId"
             type="Integer" />
+        <variable
+            name="isEditable"
+            type="Boolean" />
+        <variable
+            name="textValue"
+            type="String" />
+        <variable
+            name="onTextChanged"
+            type="Function4&lt;CharSequence,Integer,Integer,Integer,Unit&gt;" />
     </data>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -34,6 +45,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/icon"
         android:layout_height="wrap_content"
+        app:TextChange="@{onTextChanged}"
+        android:text="@{textValue ,default = ``}"
+        android:enabled="@{isEditable ,default = true}"
         android:inputType="@{isMasked ? (InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD): InputType.TYPE_CLASS_TEXT }"
         />
 </androidx.constraintlayout.widget.ConstraintLayout>

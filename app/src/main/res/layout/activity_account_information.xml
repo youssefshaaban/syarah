@@ -4,6 +4,10 @@
         <import type="android.text.InputType"/>
 
         <import type="com.tama.syarah.R" />
+        <import type="android.view.View"/>
+        <variable
+            name="viewModel"
+            type="com.tama.syarah.account_info.AccountInformationViewModel" />
     </data>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -33,6 +37,21 @@
         app:layout_constraintStart_toEndOf="@id/ic_back"
         app:layout_constraintTop_toTopOf="@id/ic_back" />
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        app:layout_constraintTop_toBottomOf="@id/ic_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:translationZ="@dimen/dimen_10dp"
+        android:visibility="@{viewModel.loadingVisibility ? View.VISIBLE : View.GONE}"
+        android:layout_height="match_parent">
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"/>
+
+    </FrameLayout>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -49,9 +68,11 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:resourceId="@{R.drawable.ic_user_avatar}"
+            app:isEditable="@{false}"
             app:layout_constraintTop_toBottomOf="@id/txt_username"
             android:layout_marginTop="@dimen/dimen_8dp"
             app:isMasked="@{false}"
+            app:textValue="@{viewModel.driverinfo.name}"
             />
     <TextView
         android:layout_width="wrap_content"
@@ -72,6 +93,8 @@
         app:layout_constraintTop_toBottomOf="@id/txt_phone_num"
         android:layout_marginTop="@dimen/dimen_8dp"
         app:isMasked="@{false}"
+        app:isEditable="@{false}"
+        app:textValue="@{viewModel.driverinfo.phone}"
         />
     <TextView
         android:layout_width="wrap_content"
@@ -125,19 +148,6 @@
             />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:layout_width="0dp"
-        android:id="@+id/saveChange"
-        android:layout_height="wrap_content"
-        style="@style/PrimaryWhiteButton"
-        android:text="@string/txt_save_change"
-        android:layout_marginTop="@dimen/dimen_60dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginBottom="@dimen/dimen_10dp"
-        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

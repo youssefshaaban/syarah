@@ -7,6 +7,7 @@
         <variable
             name="viewModel"
             type="com.tama.syarah.login.LoginViewModel" />
+        <import type="android.view.View"/>
     </data>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -58,9 +59,11 @@
         android:layout_marginTop="@dimen/dimen_10dp"
         layout="@layout/layout_edit_text_icon"
         app:isMasked="@{false}"
+        app:isEditable="@{true}"
         app:resourceId="@{R.drawable.ic_user_avatar}"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:onTextChanged="@{viewModel.emailTextChanged}"
         app:layout_constraintTop_toBottomOf="@id/title_user_name"
         />
 
@@ -81,10 +84,22 @@
         android:layout_marginTop="@dimen/dimen_10dp"
         layout="@layout/layout_edit_text_icon"
         app:isMasked="@{true}"
+        app:isEditable="@{true}"
         app:resourceId="@{R.drawable.ic_lock}"
+        app:onTextChanged="@{viewModel.passwordTextChanged}"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/title_password"
+        />
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/login"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="@dimen/dimen_15dp"
+        android:id="@+id/progressBar"
         />
     <androidx.appcompat.widget.AppCompatButton
         android:layout_width="0dp"
@@ -97,6 +112,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:onClick="@{(v)->viewModel.onClickLogin.invoke(v)}"
+        android:enabled="@{!viewModel.loadingVisible}"
         android:layout_marginBottom="@dimen/dimen_10dp"
         />
 </androidx.constraintlayout.widget.ConstraintLayout>

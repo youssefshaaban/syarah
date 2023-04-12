@@ -2,6 +2,9 @@ package com.tama.syarah.home.map
 
 import androidx.databinding.BindingAdapter
 import androidx.viewpager2.widget.ViewPager2
+import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.MapView
 import com.tama.domain.model.CarService
 import com.tama.syarah.R
 
@@ -21,6 +24,18 @@ internal fun setCarList(
             val adapter = viewPager2.adapter as CarServiceViewPagerAdapter
             adapter.submitList(list)
         }
+    }
+}
+@BindingAdapter("app:setupStoreGoogleMap")
+internal fun setupStoreGoogleMap(mapView: MapView, googleMapGetter: (() -> GoogleMap)?) {
+    val zoom = 18F
+    googleMapGetter?.invoke()?.let {
+        it.isBuildingsEnabled = false
+        it.isTrafficEnabled = false
+        it.isIndoorEnabled = false
+        it.uiSettings.isIndoorLevelPickerEnabled = false
+        it.uiSettings.isMyLocationButtonEnabled = true
+        it.moveCamera(CameraUpdateFactory.zoomTo(zoom))
     }
 }
 
