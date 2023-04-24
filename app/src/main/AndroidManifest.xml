@@ -18,6 +18,9 @@
         android:theme="@style/Theme.Syarah"
         tools:targetApi="33">
         <activity
+            android:name=".ChangeLanguageActivity"
+            android:exported="false" />
+        <activity
             android:name=".splash.SplashScreenActivity"
             android:exported="true">
             <intent-filter>
@@ -26,12 +29,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
-            android:name=".change_password.ChangePasswordActivity"
+            android:name=".home.settings.change_password.ChangePasswordActivity"
             android:exported="false" />
         <activity
-            android:name=".account_info.AccountInformationActivity"
+            android:name=".home.settings.account_info.AccountInformationActivity"
             android:exported="false" />
         <activity
             android:name=".login.LoginActivity"
@@ -40,8 +42,8 @@
             android:name=".onboarding.OnboardingActivity"
             android:exported="false" />
         <activity
-            android:name=".change_language.ChangeLanguageActivity"
-            android:exported="false"/>
+            android:name=".onboarding.change_language.ChangeLanguageActivity"
+            android:exported="false" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
@@ -50,8 +52,9 @@
         <activity
             android:name=".home.HomeActivity"
             android:exported="true"
-            android:label="@string/title_activity_home">
-        </activity>
+            android:label="@string/title_activity_home"/>
+        <activity android:name=".home.settings.change_language.ChangeLanguageSettingActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

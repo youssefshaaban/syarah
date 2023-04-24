@@ -5,6 +5,8 @@ import android.app.Activity
 import android.app.TimePickerDialog
 import android.content.Context
 import android.content.Intent
+import android.content.res.Configuration
+import android.content.res.Resources
 import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.net.Uri
@@ -358,4 +360,15 @@ fun NestedScrollView.addEndlessScroll(loadMore: () -> Unit) {
             }
         }
     })
+}
+
+fun Activity.setLocale(languageCode: String?) {
+     languageCode?.let {
+        val locale = Locale(it)
+        Locale.setDefault(locale)
+        val resources: Resources = resources
+        val config: Configuration = resources.configuration
+        config.setLocale(locale)
+        resources.updateConfiguration(config, resources.displayMetrics)
+    }
 }

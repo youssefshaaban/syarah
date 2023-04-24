@@ -1,4 +1,4 @@
-package com.tama.syarah.change_language
+package com.tama.syarah.onboarding.change_language
 
 import android.content.Context
 import android.content.res.ColorStateList
@@ -29,18 +29,5 @@ object ChangeLanguageAdapter {
             content.background = AppCompatResources.getDrawable(content.context,R.drawable.background_strock_unselection)
         }
 
-    }
-
-    private fun getRadioButtonColor(context:Context): ColorStateList {
-        val states = arrayOf(
-            intArrayOf(-android.R.attr.state_checked),
-            intArrayOf(android.R.attr.state_checked))
-
-        val colors = intArrayOf(
-            ContextCompat.getColor(context,R.color.teal_200),
-            ContextCompat.getColor(context, R.color.bottom_nav_item_icon_unselected_color)
-        )
-
-        return ColorStateList(states, colors)
     }
 }

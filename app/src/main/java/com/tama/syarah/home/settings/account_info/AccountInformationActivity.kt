@@ -1,4 +1,4 @@
-package com.tama.syarah.account_info
+package com.tama.syarah.home.settings.account_info
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -6,9 +6,8 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
-import com.tama.customui.loading.LoadingDialog
 import com.tama.syarah.R
-import com.tama.syarah.change_password.ChangePasswordActivity
+import com.tama.syarah.home.settings.change_password.ChangePasswordActivity
 import com.tama.syarah.databinding.ActivityAccountInformationBinding
 import com.tama.syarah.util.showToast
 import dagger.hilt.android.AndroidEntryPoint

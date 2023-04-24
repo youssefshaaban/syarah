@@ -4,6 +4,7 @@ import android.content.Intent
 import android.view.View
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.tama.domain.usecases.languague_uscase.GetLanguageUseCase
 import com.tama.domain.usecases.onboarding_uscases.IsOnboaedingOpenUscase
 import com.tama.domain.usecases.onboarding_uscases.SetOnboardingUsecase
 import com.tama.syarah.login.LoginActivity
@@ -13,11 +14,10 @@ import javax.inject.Inject
 @HiltViewModel
 class OnboardingViewModel @Inject constructor(
     private val setOnboardingUsecase: SetOnboardingUsecase,
-    private val isOnboaedingOpenUscase: IsOnboaedingOpenUscase
+    isOnboaedingOpenUscase: IsOnboaedingOpenUscase
 ) : ViewModel() {
     val finshiViewLiveData = MutableLiveData(false)
     val goLogin = MutableLiveData<Boolean>()
-
     init {
         goLogin.value = isOnboaedingOpenUscase.invoke()
     }

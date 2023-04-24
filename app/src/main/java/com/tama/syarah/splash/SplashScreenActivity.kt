@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
 import com.tama.syarah.R
-import com.tama.syarah.change_language.ChangeLanguageActivity
+import com.tama.syarah.onboarding.change_language.ChangeLanguageActivity
 import com.tama.syarah.login.LoginActivity
 import com.tama.syarah.onboarding.OnboardingActivity
 import dagger.hilt.android.AndroidEntryPoint
@@ -25,7 +25,7 @@ class SplashScreenActivity : AppCompatActivity() {
             viewModel.initNextView()
         }
         viewModel.openLanguageSelection.observe(this){
-            startActivity(Intent(this,ChangeLanguageActivity::class.java))
+            startActivity(Intent(this, ChangeLanguageActivity::class.java))
             finish()
         }
         viewModel.openOnBoarding.observe(this){

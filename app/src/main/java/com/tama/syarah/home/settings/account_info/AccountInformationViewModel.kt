@@ -1,4 +1,4 @@
-package com.tama.syarah.account_info
+package com.tama.syarah.home.settings.account_info
 
 
 import androidx.lifecycle.MutableLiveData

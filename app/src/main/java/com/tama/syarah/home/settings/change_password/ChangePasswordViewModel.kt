@@ -1,4 +1,4 @@
-package com.tama.syarah.change_password
+package com.tama.syarah.home.settings.change_password
 
 
 import android.view.View
@@ -37,7 +37,7 @@ class ChangePasswordViewModel @Inject constructor(changePasswordUseCases: Change
         }
         loadingVisibility.value = true
         viewModelScope.launch {
-            when (val result =
+            when (
                 changePasswordUseCases.invoke(
                     currentPassword.value ?: "",
                     newPassword.value ?: ""

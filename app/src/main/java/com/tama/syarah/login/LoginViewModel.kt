@@ -7,6 +7,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.tama.domain.usecases.identity.LoginUseCases
+import com.tama.domain.usecases.languague_uscase.GetLanguageUseCase
 import com.tama.domain.util.Failure
 import com.tama.syarah.home.HomeActivity
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -15,7 +16,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class LoginViewModel @Inject constructor(private val loginUseCases: LoginUseCases) : ViewModel() {
+class LoginViewModel @Inject constructor(private val loginUseCases: LoginUseCases,getLanguageUseCase: GetLanguageUseCase) : ViewModel() {
     val finshiViewLiveData = MutableLiveData(false)
     val loadingVisible = MutableLiveData(false)
     val errorState = MutableLiveData<String>()

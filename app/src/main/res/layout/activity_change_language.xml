@@ -3,8 +3,8 @@
     <data>
         <variable
             name="viewModel"
-            type="com.tama.syarah.change_language.ChangeLanguageViewModel" />
-        <import type="com.tama.syarah.change_language.LanguageType"/>
+            type="com.tama.syarah.onboarding.change_language.ChangeLanguageViewModel" />
+        <import type="com.tama.syarah.onboarding.change_language.LanguageType"/>
     </data>
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -12,7 +12,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".change_language.ChangeLanguageActivity">
+    tools:context=".onboarding.change_language.ChangeLanguageActivity">
 <ImageView
     android:layout_width="match_parent"
     android:layout_height="match_parent"

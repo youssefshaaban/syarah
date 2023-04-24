@@ -5,13 +5,17 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
+import com.tama.domain.usecases.languague_uscase.GetLanguageUseCase
 import com.tama.syarah.R
 import com.tama.syarah.databinding.ActivityHomeBinding
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class HomeActivity : AppCompatActivity() {
     private lateinit var _binding: ActivityHomeBinding
+    @Inject
+    lateinit var getlLanguage: GetLanguageUseCase
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         _binding = ActivityHomeBinding.inflate(layoutInflater)

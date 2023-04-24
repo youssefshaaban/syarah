@@ -4,8 +4,7 @@ package com.tama.syarah.home.settings
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.tama.syarah.R
-import com.tama.syarah.account_info.AccountInformationActivity
-import com.tama.syarah.change_language.ChangeLanguageActivity
+import com.tama.syarah.home.settings.account_info.AccountInformationActivity
 import com.tama.syarah.di.ResourcesProvider
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
@@ -36,7 +35,7 @@ class SettingsViewModel @Inject constructor(
             SettingsItem(
                 resourcesProvider.getString(R.string.change_language_menu),
                 R.drawable.ic_language,
-                cls = ChangeLanguageActivity::class.java
+                cls = com.tama.syarah.home.settings.change_language.ChangeLanguageSettingActivity::class.java
             )
         )
     }

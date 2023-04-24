@@ -1,4 +1,4 @@
-package com.tama.syarah.change_password
+package com.tama.syarah.home.settings.change_password
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

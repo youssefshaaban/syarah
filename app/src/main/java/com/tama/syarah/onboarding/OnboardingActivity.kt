@@ -16,6 +16,7 @@ class OnboardingActivity : AppCompatActivity() {
     val viewModel: OnboardingViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        //setLocale(viewModel.getLanguage)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_onboarding)
         binding.also { it.viewModel = viewModel }
         viewModel.finshiViewLiveData.observe(this) { isFinish ->

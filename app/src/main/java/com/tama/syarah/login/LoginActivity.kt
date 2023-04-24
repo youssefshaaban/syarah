@@ -1,5 +1,6 @@
 package com.tama.syarah.login
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -8,6 +9,7 @@ import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
 import com.tama.syarah.R
 import com.tama.syarah.databinding.ActivityLoginBinding
+import com.tama.syarah.util.LocaleHelper
 import com.tama.syarah.util.showToast
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -34,5 +36,9 @@ class LoginActivity : AppCompatActivity() {
                 finish()
             }
         }
+    }
+
+    override fun attachBaseContext(newBase: Context?) {
+        super.attachBaseContext(LocaleHelper.onAttach(newBase!!))
     }
 }
