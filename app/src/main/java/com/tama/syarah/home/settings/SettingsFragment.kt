@@ -1,5 +1,6 @@
 package com.tama.syarah.home.settings
 
+import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,7 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import com.tama.syarah.R
 import com.tama.syarah.databinding.FragmentSettingsBinding
+import com.tama.syarah.login.LoginActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -21,9 +24,7 @@ class SettingsFragment : Fragment() {
     private val settingsViewModel: SettingsViewModel by viewModels()
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         _binding = FragmentSettingsBinding.inflate(inflater, container, false)
         _binding?.also { it.viewModel = settingsViewModel }
@@ -35,6 +36,26 @@ class SettingsFragment : Fragment() {
         settingsViewModel.itemSelection.observe(viewLifecycleOwner) {
             startActivity(Intent(requireContext(), it.cls))
         }
+        binding.logout.setOnClickListener {
+            showLogoutDialog()
+        }
+        binding.logoutTxt.setOnClickListener { showLogoutDialog() }
+    }
+
+    private fun showLogoutDialog() {
+        AlertDialog.Builder(requireActivity()).setMessage(getString(R.string.verify_logout))
+            .setNegativeButton(getString(R.string.txt_ok)
+        ) { dialog, which ->
+                dialog.dismiss()
+                startActivity(Intent(requireActivity(),LoginActivity::class.java).apply {
+                    addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                })
+                requireActivity().finishAffinity()
+            }
+            .setPositiveButton(getString(R.string.txt_cancel)
+            ) { dialog, which ->
+                dialog.dismiss()
+            }.show()
     }
 
     override fun onDestroyView() {

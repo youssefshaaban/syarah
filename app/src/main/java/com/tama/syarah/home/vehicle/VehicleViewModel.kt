@@ -23,6 +23,14 @@ class VehicleViewModel @Inject constructor(
     val vechical = MutableLiveData<Vechical>()
 
     init {
+        if (vechical.value == null) {
+            loadData()
+        } else {
+            loadingVisibility.value = false
+        }
+    }
+
+    private fun loadData() {
         viewModelScope.launch {
             val result = getDriverVehicleUseCases.invoke()
             delay(2000)
@@ -50,5 +58,5 @@ class VehicleViewModel @Inject constructor(
         }
 
     }
-
 }
+

@@ -1,4 +1,4 @@
-package com.tama.domain.repository
+package com.tama.domain.repositories
 
 import com.tama.domain.entity.AuthorizationData
 import com.tama.domain.entity.ChangePasswordRequest

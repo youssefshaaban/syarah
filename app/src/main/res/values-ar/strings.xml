@@ -5,7 +5,7 @@
     <string name="title_vehicale">المركبه</string>
     <string name="title_settings">الضبط</string>
     <string name="title_history_vecicles">معلومات عن المركبه</string>
-    <string name="account_information_menu">معلومات عن الحساب</string>
+    <string name="account_information_menu">معلومات عن حسابك</string>
     <string name="change_language_menu">تغيير اللغه</string>
     <string name="logout">تسجيل خروج</string>
     <string name="title_car_info">معلومات عن السياره</string>
@@ -42,4 +42,8 @@
     <string name="txt_confirm_password">تاكيد كلمه المرور الجديده</string>
     <string name="txt_lets_start">دعنا نبدا</string>
     <string name="txt_chnge_lang">تغيير اللغه</string>
+    <string name="save_succefully">تم الحفظ بنجاح</string>
+    <string name="verify_logout">هل انت متاكد الخروج من التطبيق</string>
+    <string name="txt_cancel">الغاء</string>
+    <string name="txt_ok">موافق</string>
 </resources>

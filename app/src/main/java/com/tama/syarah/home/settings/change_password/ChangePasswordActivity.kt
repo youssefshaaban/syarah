@@ -2,10 +2,12 @@ package com.tama.syarah.home.settings.change_password
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
 import com.tama.syarah.R
 import com.tama.syarah.databinding.ActivityChangePasswordBinding
+import com.tama.syarah.util.showToast
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -22,6 +24,7 @@ class ChangePasswordActivity : AppCompatActivity() {
 
         viewModel.onSucces.observe(this) {
             if (it) {
+                binding.saveChange.showToast(getString(R.string.save_succefully), Toast.LENGTH_SHORT)
                 finish()
             }
         }

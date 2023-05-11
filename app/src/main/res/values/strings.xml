@@ -42,4 +42,8 @@
     <string name="txt_confirm_password">Confirm new password</string>
     <string name="txt_lets_start">Let’s start</string>
     <string name="txt_chnge_lang">Change language</string>
+    <string name="save_succefully">"Change saved successfully "</string>
+    <string name="verify_logout">"Are you sure loagout "</string>
+    <string name="txt_cancel">Cancel</string>
+    <string name="txt_ok">Ok</string>
 </resources>

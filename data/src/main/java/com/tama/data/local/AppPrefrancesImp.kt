@@ -2,7 +2,7 @@ package com.tama.data.local
 
 import android.content.Context
 import com.tama.data.util.*
-import com.tama.domain.repository.ISharedPrefrance
+import com.tama.domain.repositories.ISharedPrefrance
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 

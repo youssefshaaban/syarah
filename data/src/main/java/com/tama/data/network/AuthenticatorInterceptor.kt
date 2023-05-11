@@ -1,6 +1,6 @@
 package com.tama.data.network
 
-import com.tama.domain.repository.ISharedPrefrance
+import com.tama.domain.repositories.ISharedPrefrance
 import okhttp3.Interceptor
 import okhttp3.Response
 import javax.inject.Inject

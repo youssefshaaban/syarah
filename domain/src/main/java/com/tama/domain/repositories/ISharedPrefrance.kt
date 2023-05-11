@@ -1,4 +1,4 @@
-package com.tama.domain.repository
+package com.tama.domain.repositories
 
 interface ISharedPrefrance {
     fun isOnboardingOpen():Boolean

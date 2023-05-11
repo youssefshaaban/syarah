@@ -1,4 +1,4 @@
-package com.tama.domain.repository
+package com.tama.domain.repositories
 
 import com.tama.domain.entity.NearbyParams
 import com.tama.domain.model.CarService

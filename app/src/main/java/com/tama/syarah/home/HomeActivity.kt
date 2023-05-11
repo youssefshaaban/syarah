@@ -1,5 +1,6 @@
 package com.tama.syarah.home
 
+import android.content.Context
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
@@ -8,6 +9,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.tama.domain.usecases.languague_uscase.GetLanguageUseCase
 import com.tama.syarah.R
 import com.tama.syarah.databinding.ActivityHomeBinding
+import com.tama.syarah.util.LocaleHelper
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -28,5 +30,11 @@ class HomeActivity : AppCompatActivity() {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         navView.setupWithNavController(navController)
+    }
+
+    override fun attachBaseContext(newBase: Context?) {
+        newBase?.let {
+            super.attachBaseContext(LocaleHelper.onAttach(newBase))
+        }
     }
 }
