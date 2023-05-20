@@ -49,8 +49,8 @@ class AppPrefrancesImp @Inject constructor( @ApplicationContext context: Context
         }
     }
 
-    override fun getToken(): String {
-        return sharedPref.getString(KEY_TOKEN, "").toString()
+    override fun getToken(): String? {
+        return sharedPref.getString(KEY_TOKEN, null)
     }
 
     override fun saveRefreshToken(refreshToken: String) {

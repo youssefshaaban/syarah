@@ -33,12 +33,14 @@ class SettingsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        settingsViewModel.itemSelection.observe(viewLifecycleOwner) {
+        settingsViewModel.itemSelection.observe(viewLifecycleOwner) {event->event.getContentIfNotHandled()?.let {
             startActivity(Intent(requireContext(), it.cls))
+        }
         }
         binding.logout.setOnClickListener {
             showLogoutDialog()
         }
+        settingsViewModel.getDataForSettings(requireContext())
         binding.logoutTxt.setOnClickListener { showLogoutDialog() }
     }
 

@@ -55,8 +55,8 @@ dependencies {
 // di
     implementation Libs.INSTANCE.hiltAndroid
     kapt Libs.INSTANCE.hiltAndroidCompiler
-    // Test
-    testImplementation TestLibs.junit
-    androidTestImplementation TestLibs.junitExt
-    androidTestImplementation TestLibs.espresso
+//    // Test
+//    testImplementation TestLibs.junit
+//    androidTestImplementation TestLibs.junitExt
+//    androidTestImplementation TestLibs.espresso
 }

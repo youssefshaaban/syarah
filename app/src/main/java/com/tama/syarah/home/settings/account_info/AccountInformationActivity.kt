@@ -1,5 +1,6 @@
 package com.tama.syarah.home.settings.account_info
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -9,6 +10,7 @@ import androidx.databinding.DataBindingUtil
 import com.tama.syarah.R
 import com.tama.syarah.home.settings.change_password.ChangePasswordActivity
 import com.tama.syarah.databinding.ActivityAccountInformationBinding
+import com.tama.syarah.util.LocaleHelper
 import com.tama.syarah.util.showToast
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -36,5 +38,11 @@ class AccountInformationActivity : AppCompatActivity() {
             }
         }
 
+    }
+
+    override fun attachBaseContext(newBase: Context?) {
+        newBase?.let {
+            super.attachBaseContext(LocaleHelper.onAttach(newBase))
+        }
     }
 }

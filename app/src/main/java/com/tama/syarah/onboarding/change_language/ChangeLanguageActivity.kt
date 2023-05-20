@@ -1,11 +1,13 @@
 package com.tama.syarah.onboarding.change_language
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
 import com.tama.syarah.R
 import com.tama.syarah.databinding.ActivityChangeLanguageBinding
+import com.tama.syarah.util.LocaleHelper
 import com.tama.syarah.util.setLocale
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -24,6 +26,12 @@ class ChangeLanguageActivity : AppCompatActivity() {
             if (it) {
                 finish()
             }
+        }
+    }
+
+    override fun attachBaseContext(newBase: Context?) {
+        newBase?.let {
+            super.attachBaseContext(LocaleHelper.onAttach(newBase))
         }
     }
 }

@@ -1,5 +1,6 @@
 package com.tama.syarah.onboarding
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,6 +9,7 @@ import androidx.databinding.DataBindingUtil
 import com.tama.syarah.login.LoginActivity
 import com.tama.syarah.R
 import com.tama.syarah.databinding.ActivityOnboardingBinding
+import com.tama.syarah.util.LocaleHelper
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -28,6 +30,11 @@ class OnboardingActivity : AppCompatActivity() {
                 startActivity(Intent(this, LoginActivity::class.java))
                 finish()
             }
+        }
+    }
+    override fun attachBaseContext(newBase: Context?) {
+        newBase?.let {
+            super.attachBaseContext(LocaleHelper.onAttach(newBase))
         }
     }
 }

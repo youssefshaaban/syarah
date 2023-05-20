@@ -39,5 +39,5 @@ dependencies {
     implementation Libs.INSTANCE.hiltAndroid
     kapt Libs.INSTANCE.hiltAndroidCompiler
 
-    testImplementation TestLibs.junit
+    //testImplementation TestLibs.junit
 }

@@ -46,4 +46,5 @@
     <string name="verify_logout">هل انت متاكد الخروج من التطبيق</string>
     <string name="txt_cancel">الغاء</string>
     <string name="txt_ok">موافق</string>
+    <string name="txt_message_change_language">هل انت متاكد من تغير اللغه</string>
 </resources>

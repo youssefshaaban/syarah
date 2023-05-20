@@ -11,7 +11,7 @@ class AuthenticatorInterceptor @Inject constructor(val iSharedPrefrance: IShared
     override fun intercept(chain: Interceptor.Chain): Response {
         val original = chain.request()
         val requestBuilder = original.newBuilder()
-        if (iSharedPrefrance.getToken().isEmpty().not())
+        if (iSharedPrefrance.getToken().isNullOrEmpty().not())
             requestBuilder.addHeader("Authorization", "Bearer ${iSharedPrefrance.getToken()}")
         val request = requestBuilder.build()
         return chain.proceed(request)

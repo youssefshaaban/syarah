@@ -1,5 +1,6 @@
 package com.tama.syarah.home.settings.change_password
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -7,6 +8,7 @@ import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
 import com.tama.syarah.R
 import com.tama.syarah.databinding.ActivityChangePasswordBinding
+import com.tama.syarah.util.LocaleHelper
 import com.tama.syarah.util.showToast
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -27,6 +29,12 @@ class ChangePasswordActivity : AppCompatActivity() {
                 binding.saveChange.showToast(getString(R.string.save_succefully), Toast.LENGTH_SHORT)
                 finish()
             }
+        }
+    }
+
+    override fun attachBaseContext(newBase: Context?) {
+        newBase?.let {
+            super.attachBaseContext(LocaleHelper.onAttach(newBase))
         }
     }
 }

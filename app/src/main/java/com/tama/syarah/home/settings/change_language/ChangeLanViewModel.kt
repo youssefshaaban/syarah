@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 import com.tama.domain.usecases.languague_uscase.GetLanguageUseCase
 import com.tama.domain.usecases.languague_uscase.SetLanguageUseCase
 import com.tama.syarah.onboarding.change_language.LanguageType
+import com.tama.syarah.util.SingleLiveDataEvent
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -19,7 +20,8 @@ class ChangeLanViewModel @Inject constructor(
     private val _englishSelection = MutableLiveData(false)
     val englishSelection = MediatorLiveData<Boolean>()
     val arabicSelection = MediatorLiveData<Boolean>()
-    val shouldFinishActiivty = MutableLiveData<Boolean>()
+    val shouldShowAlertChangeLanguage = MutableLiveData<SingleLiveDataEvent<Boolean>>()
+    var languageSelection = ""
 
     init {
         englishSelection.addSource(_englishSelection) {
@@ -45,14 +47,17 @@ class ChangeLanViewModel @Inject constructor(
         if (languageType == LanguageType.ENGLISH && getLanguageUseCase.invoke() != "en") {
             _englishSelection.value = true
             _arabicSelection.value = false
-            setLanguageUsecase.invoke("en")
-            shouldFinishActiivty.value = true
+            languageSelection= "en"
+            shouldShowAlertChangeLanguage.value = SingleLiveDataEvent(true)
         } else if (languageType == LanguageType.ARABIC && getLanguageUseCase.invoke() != "ar") {
             _englishSelection.value = false
             _arabicSelection.value = true
-            setLanguageUsecase.invoke("ar")
-            shouldFinishActiivty.value = true
+            languageSelection= "ar"
+            shouldShowAlertChangeLanguage.value = SingleLiveDataEvent(true)
         }
+    }
 
+    fun saveValue() {
+        setLanguageUsecase.invoke(languageSelection)
     }
 }

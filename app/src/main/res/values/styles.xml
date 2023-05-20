@@ -73,7 +73,7 @@
     </style>
 
     <!-- Legacy Splash Screen Theme -->
-    <style name="LegacySplashTheme" parent="Theme.AppCompat.NoActionBar">
+    <style name="LegacySplashTheme" parent="Theme.Syarah">
         <item name="android:windowBackground">@drawable/legacy_splash_background</item>
         <item name="android:windowTranslucentStatus">true</item>
         <item name="android:windowTranslucentNavigation">true</item>

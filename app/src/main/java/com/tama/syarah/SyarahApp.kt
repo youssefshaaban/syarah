@@ -2,6 +2,7 @@ package com.tama.syarah
 
 import android.app.Application
 import android.content.Context
+import android.content.res.Configuration
 import android.util.Log
 import com.tama.domain.usecases.languague_uscase.GetLanguageUseCase
 import com.tama.syarah.util.LocaleHelper

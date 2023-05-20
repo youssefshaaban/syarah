@@ -59,8 +59,8 @@ dependencies {
     implementation Libs.INSTANCE.glide
     implementation Libs.INSTANCE.locationServices
     kapt Libs.INSTANCE.hiltAndroidCompiler
-    testImplementation TestLibs.INSTANCE.junit
-    androidTestImplementation TestLibs.INSTANCE.junitExt
-    androidTestImplementation TestLibs.INSTANCE.espresso
+//    testImplementation TestLibs.INSTANCE.junit
+//    androidTestImplementation TestLibs.INSTANCE.junitExt
+//    androidTestImplementation TestLibs.INSTANCE.espresso
     implementation 'androidx.core:core-splashscreen:1.0.0'
 }

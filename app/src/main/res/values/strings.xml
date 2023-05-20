@@ -46,4 +46,5 @@
     <string name="verify_logout">"Are you sure loagout "</string>
     <string name="txt_cancel">Cancel</string>
     <string name="txt_ok">Ok</string>
+    <string name="txt_message_change_language">Are you sure change language?</string>
 </resources>
