@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <import type="android.text.InputType"/>
+
+        <import type="com.tama.syarah.R" />
+        <import type="android.view.View"/>
+        <import type="com.tama.car_center.onboarding.change_language.LanguageType"/>
+        <variable
+            name="viewModel"
+            type="com.tama.car_center.home.settings.change_language.ChangeLanViewModel" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingHorizontal="@dimen/dimen_24dp"
+        tools:context=".home.settings.account_info.AccountInformationActivity">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_back"
+            android:id="@+id/ic_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="@dimen/dimen_44dp"
+            />
+
+        <TextView
+            style="@style/TextHeadLineStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/txt_chnge_lang"
+            app:layout_constraintBottom_toBottomOf="@+id/ic_back"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:id="@+id/txt_change_language"
+            app:layout_constraintStart_toEndOf="@id/ic_back"
+            app:layout_constraintTop_toTopOf="@id/ic_back" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/dimen_30dp"
+            android:orientation="horizontal"
+            android:id="@+id/checkArabic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_change_language"
+            android:padding="@dimen/dimen_15dp"
+            android:onClick="@{(v)->viewModel.onClickSelectionLanguage(v,LanguageType.ARABIC)}"
+            app:bindSelectionContent="@{viewModel.arabicSelection}"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:bindSelection="@{viewModel.arabicSelection}"
+                tools:src="@drawable/ic_selection"
+                />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/arabic"
+                style="@style/MeduimTextStyle"
+                android:layout_marginStart="@dimen/dimen_10dp"
+                />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/dimen_30dp"
+            android:padding="@dimen/dimen_15dp"
+            android:id="@+id/checkEnglish"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/checkArabic"
+            android:onClick="@{(v)->viewModel.onClickSelectionLanguage(v,LanguageType.ENGLISH)}"
+            app:bindSelectionContent="@{viewModel.englishSelection}"
+            android:background="@drawable/background_strock_unselection"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:bindSelection="@{viewModel.englishSelection}"
+                android:text="@string/txt_english"
+                tools:src="@drawable/ic_selection"
+                />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_english"
+                style="@style/MeduimTextStyle"
+                android:layout_marginStart="@dimen/dimen_10dp"
+                />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

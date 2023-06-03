@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="viewModel"
+            type="com.tama.driver.onboarding.change_language.ChangeLanguageViewModel" />
+        <import type="com.tama.driver.onboarding.change_language.LanguageType"/>
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".onboarding.change_language.ChangeLanguageActivity">
+<ImageView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    android:scaleType="centerCrop"
+    android:src="@drawable/ic_language_background"
+    />
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        style="@style/MeduimTextStyle"
+        android:padding="@dimen/dimen_7dp"
+        android:textColor="@color/white"
+        tools:text="@string/txt_welcome_at_kabrit"
+        android:layout_marginBottom="@dimen/dimen_10dp"
+        app:layout_constraintBottom_toTopOf="@id/contentLanguage"
+        />
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:orientation="vertical"
+        android:paddingStart="@dimen/dimen_24dp"
+        android:paddingEnd="@dimen/dimen_24dp"
+        android:id="@+id/contentLanguage"
+        android:background="@drawable/background_language_top_raduis"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_33dp"
+            style="@style/MeduimTextStyle"
+            android:text="@string/select_language"
+            />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/dimen_30dp"
+            android:orientation="horizontal"
+            android:id="@+id/checkArabic"
+            android:padding="@dimen/dimen_15dp"
+            android:onClick="@{(v)->viewModel.onClickSelectionLanguage(v,LanguageType.ARABIC)}"
+            app:bindSelectionContent="@{viewModel.arabicSelection}"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:bindSelection="@{viewModel.arabicSelection}"
+                tools:src="@drawable/ic_selection"
+                />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/arabic"
+                style="@style/MeduimTextStyle"
+                android:layout_marginStart="@dimen/dimen_10dp"
+                />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/dimen_30dp"
+            android:padding="@dimen/dimen_15dp"
+            android:id="@+id/checkEnglish"
+            android:orientation="horizontal"
+            android:onClick="@{(v)->viewModel.onClickSelectionLanguage(v,LanguageType.ENGLISH)}"
+            app:bindSelectionContent="@{viewModel.englishSelection}"
+            android:background="@drawable/background_strock_unselection"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:bindSelection="@{viewModel.englishSelection}"
+                android:text="@string/txt_english"
+                tools:src="@drawable/ic_selection"
+                />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_english"
+                style="@style/MeduimTextStyle"
+                android:layout_marginStart="@dimen/dimen_10dp"
+                />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="match_parent"
+            android:id="@+id/lets_strat"
+            android:layout_height="wrap_content"
+            style="@style/PrimaryWhiteButton"
+            android:text="@string/txt_lets_start"
+            android:layout_marginTop="@dimen/dimen_40dp"
+            app:layout_constraintTop_toBottomOf="@id/userInputPassword"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:onClick="@{(v)->viewModel.onClickStart(v)}"
+            android:layout_marginBottom="@dimen/dimen_10dp"
+            />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

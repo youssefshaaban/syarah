@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <import type="android.text.InputType"/>
+
+        <import type="com.tama.driver.R" />
+        <import type="android.view.View"/>
+        <variable
+            name="viewModel"
+            type="com.tama.driver.home.settings.account_info.AccountInformationViewModel" />
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingHorizontal="@dimen/dimen_24dp"
+    tools:context=".home.settings.account_info.AccountInformationActivity">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_back"
+        android:id="@+id/ic_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="@dimen/dimen_44dp"
+        />
+
+    <TextView
+        style="@style/TextHeadLineStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/txt_account_information"
+        app:layout_constraintBottom_toBottomOf="@+id/ic_back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/ic_back"
+        app:layout_constraintTop_toTopOf="@id/ic_back" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        app:layout_constraintTop_toBottomOf="@id/ic_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:translationZ="@dimen/dimen_10dp"
+        android:visibility="@{viewModel.loadingVisibility ? View.VISIBLE : View.GONE}"
+        android:layout_height="match_parent">
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"/>
+
+    </FrameLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        android:id="@+id/txt_username"
+        android:text="@string/txt_user_name"
+        app:layout_constraintTop_toBottomOf="@id/ic_back"
+        android:layout_marginTop="@dimen/dimen_36dp"
+        />
+        <include layout="@layout/layout_edit_text_icon"
+            android:id="@+id/username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:resourceId="@{R.drawable.ic_user_avatar}"
+            app:isEditable="@{false}"
+            app:layout_constraintTop_toBottomOf="@id/txt_username"
+            android:layout_marginTop="@dimen/dimen_8dp"
+            app:isMasked="@{false}"
+            app:textValue="@{viewModel.driverinfo.name}"
+            />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        android:id="@+id/txt_phone_num"
+        android:text="@string/txt_phone_number"
+        app:layout_constraintTop_toBottomOf="@id/username"
+        android:layout_marginTop="@dimen/dimen_36dp"
+        />
+    <include layout="@layout/layout_edit_text_icon"
+        android:id="@+id/phone_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:resourceId="@{R.drawable.ic_phone_number}"
+        app:layout_constraintTop_toBottomOf="@id/txt_phone_num"
+        android:layout_marginTop="@dimen/dimen_8dp"
+        app:isMasked="@{false}"
+        app:isEditable="@{false}"
+        app:textValue="@{viewModel.driverinfo.phone}"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        android:id="@+id/txt_password"
+        android:text="@string/txt_password"
+        app:layout_constraintTop_toBottomOf="@id/phone_number"
+        android:layout_marginTop="@dimen/dimen_36dp"
+        />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:padding="@dimen/dimen_10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txt_password"
+        android:layout_marginTop="@dimen/dimen_8dp"
+        android:background="@drawable/background_strock_unselection"
+        android:layout_height="wrap_content">
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/icon"
+            android:src="@drawable/ic_lock"
+            android:layout_marginStart="@dimen/dimen_10dp"
+            />
+        <androidx.appcompat.widget.AppCompatEditText
+            android:layout_width="0dp"
+            android:background="@null"
+            android:id="@+id/etInput"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/changePassword"
+            app:layout_constraintStart_toEndOf="@id/icon"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:text="fdsfdsfds"
+            android:enabled="false"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/changePassword"
+            android:text="@string/txt_change"
+            style="@style/TextStyleAction"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/etInput"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

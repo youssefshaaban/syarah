@@ -1,0 +1,62 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'com.google.dagger.hilt.android'
+}
+
+android {
+    namespace 'com.tama.data'
+    compileSdk AppConfig.compileSdk
+
+    defaultConfig {
+        minSdk AppConfig.minSdk
+        targetSdk AppConfig.compileSdk
+
+        testInstrumentationRunner AppConfig.androidTestInstrumentation
+        consumerProguardFiles AppConfig.proguardConsumerRules
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            consumerProguardFiles 'consumer-rules.pro'
+        }
+        debug {
+            minifyEnabled false
+            consumerProguardFiles 'consumer-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    implementation project(":domain")
+    implementation Libs.INSTANCE.coreExt
+    implementation Libs.INSTANCE.appCompat
+    implementation Libs.INSTANCE.material
+    // network
+    implementation Libs.INSTANCE.retrofit
+    implementation Libs.INSTANCE.gson
+    implementation Libs.INSTANCE.okhttp3
+    implementation Libs.INSTANCE.gsonConverter
+    implementation Libs.INSTANCE.loggingInterceptor
+    //local data source
+    implementation Libs.INSTANCE.roomAndroid
+    kapt  Libs.INSTANCE.roomKapt
+
+    implementation Libs.INSTANCE.coreCoroutines
+// di
+    implementation Libs.INSTANCE.hiltAndroid
+    kapt Libs.INSTANCE.hiltAndroidCompiler
+//    // Test
+//    testImplementation TestLibs.junit
+//    androidTestImplementation TestLibs.junitExt
+//    androidTestImplementation TestLibs.espresso
+}

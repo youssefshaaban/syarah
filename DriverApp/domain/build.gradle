@@ -1,0 +1,43 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'com.google.dagger.hilt.android'
+    id 'kotlin-kapt'
+}
+
+android {
+    namespace 'com.tama.domain'
+    compileSdk AppConfig.compileSdk
+
+    defaultConfig {
+        minSdk AppConfig.minSdk
+        targetSdk AppConfig.compileSdk
+
+        testInstrumentationRunner AppConfig.androidTestInstrumentation
+        consumerProguardFiles AppConfig.proguardConsumerRules
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    implementation Libs.INSTANCE.coreExt
+    implementation Libs.INSTANCE.coreCoroutines
+// di
+    implementation Libs.INSTANCE.hiltAndroid
+    kapt Libs.INSTANCE.hiltAndroidCompiler
+
+    //testImplementation TestLibs.junit
+}

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_history"
+        android:icon="@drawable/ic_history"
+        android:title="@string/title_history_vecicles" />
+
+    <item
+        android:id="@+id/navigation_vechicals"
+        android:icon="@drawable/ic_vechical"
+        android:title="@string/title_vehicale" />
+
+
+    <item
+        android:id="@+id/navigation_settings"
+        android:icon="@drawable/ic_setting"
+        android:title="@string/title_settings" />
+
+</menu>
